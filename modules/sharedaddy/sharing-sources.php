@@ -169,6 +169,14 @@ abstract class Sharing_Source {
 	}
 
 	public function process_request( $post, array $post_data ) {
+         /**
+          * Bump sharing stats.
+          *
+          * @since 1.1.0
+          *
+          * @param array $args Bump sharing stats for a specific service.
+          *
+          */
 		do_action( 'sharing_bump_stats', array( 'service' => $this, 'post' => $post ) );
 	}
 
@@ -263,7 +271,12 @@ class Share_Email extends Sharing_Source {
 				if ( ( $data = apply_filters( 'sharing_email_can_send', $data ) ) !== false ) {
 					// Record stats
 					parent::process_request( $data['post'], $post_data );
-
+                   /**
+                    * Send shared post via email.
+                    *
+                    * @since 1.1.0
+                    *
+                    */
 					do_action( 'sharing_email_send_post', $data );
 				}
 
@@ -324,7 +337,15 @@ class Share_Email extends Sharing_Source {
 
 			<?php endif; ?>
 
-			<?php do_action( 'sharing_email_dialog', 'jetpack' ); ?>
+			<?php 
+           /**
+            * Shows sharing email dialog.
+            *
+            * @since 1.6.0
+            *
+            */
+			
+			do_action( 'sharing_email_dialog', 'jetpack' ); ?>
 
 			<img style="float: right; display: none" class="loading" src="<?php echo apply_filters( 'jetpack_static_url', plugin_dir_url( __FILE__ ) . 'images/loading.gif' ); ?>" alt="loading" width="16" height="16" />
 			<input type="submit" value="<?php esc_attr_e( 'Send Email', 'jetpack' ); ?>" class="sharing_send" />
