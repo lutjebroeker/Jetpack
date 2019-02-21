@@ -2273,7 +2273,7 @@ msgstr "Controleer je verjaardag."
 
 #: modules/stats.php:842 modules/videopress/class.videopress-player.php:280
 msgid "Submit"
-msgstr "Vastleggen"
+msgstr "Verzenden"
 
 #: modules/videopress/class.videopress-player.php:327
 msgid "You do not have sufficient <a rel=\"nofollow\" href=\"%s\">freedom levels</a> to view this video. Support free software and upgrade."
